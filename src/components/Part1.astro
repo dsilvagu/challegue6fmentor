@@ -1,0 +1,35 @@
+---
+interface Props {
+    img1 : string;
+    img2 : string;
+    img3 : string;
+    textproduct : string;
+    texttitle: string;
+    textdescription: string;
+    price: string;
+    pricenull: string;
+    button: string;
+}
+
+const {img1, img2 , img3 ,textproduct, texttitle, textdescription, price, pricenull, button} = Astro.props;
+
+import '@fontsource-variable/montserrat';
+import '@fontsource-variable/fraunces';
+---
+
+<div class="bg-pwhite rounded-lg font-mont flex flex-col lg:flex-row">
+    <img class="rounded-t-lg lg:hidden" src={img3} alt="">
+    <img class="hidden lg:block w-1/2 rounded-l-lg" src={img2} alt="">
+    <div class="p-5 flex flex-col gap-4 lg:w-1/2 lg:gap-10 lg:justify-center lg:px-11 ">
+        <p class="tracking-[0.5rem] uppercase text-pdgblue font-light text-xs">{textproduct}</p>
+        <h1 class="text-3xl font-fra font-bold lg:text-4xl">{texttitle}</h1>
+        <p class="text-pdgblue font-medium text-sm">{textdescription}</p>
+        <article class="flex gap-2">
+            <p class="text-pdcyan font-bold text-4xl font-fra">{price}</p>
+            <p class="text-pdgblue line-through">{pricenull}</p>
+        </article>
+        <button class="bg-pdcyan w-full flex justify-center gap-4 text-pwhite items-center py-3 rounded-lg">
+            <img src={img1} alt="">
+        {button}</button>
+    </div>
+</div>
